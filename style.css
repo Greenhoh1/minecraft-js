@@ -1,0 +1,242 @@
+@font-face {
+  font-family: 'Minecraft';
+  src: url('/fonts/Minecraft.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Global reset and styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Minecraft', sans-serif;
+  background-color: #1c1c1c;
+  color: white;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+/* Main heading with glow effect */
+h1 {
+  font-size: 3.5em;
+  margin: 0;
+  text-align: center;
+  color: #ffb300;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  padding: 20px 0;
+  letter-spacing: 2px;
+  animation: textGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 5px #ffb300, 0 0 10px #ffb300, 0 0 15px #ffb300;
+  }
+  100% {
+    text-shadow: 0 0 20px #ffb300, 0 0 30px #ffb300, 0 0 40px #ffb300;
+  }
+}
+
+/* Info box with subtle hover effect */
+#info {
+  position: absolute;
+  font-family: sans-serif;
+  font-size: 24px;
+  right: 16px;
+  bottom: 16px;
+  color: white;
+  margin: 8px;
+  padding: 12px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease;
+}
+
+#info:hover {
+  transform: scale(1.05);
+}
+
+/* Toolbar container fixed at the bottom */
+#toolbar-container {
+  position: fixed;
+  bottom: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Toolbar styling and hover effect */
+#toolbar {
+  background-color: rgb(109, 109, 109);
+  border: 4px solid rgb(147, 147, 147);
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+#toolbar:hover {
+  background-color: rgb(88, 88, 88);
+}
+
+/* Toolbar icon styling */
+.toolbar-icon {
+  width: 64px;
+  height: 64px;
+  outline: 4px solid rgb(58, 58, 58);
+  border-radius: 4px;
+  transition: outline 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.toolbar-icon.selected {
+  outline: 4px solid white;
+  transform: scale(1.1);
+  filter: brightness(1.4);
+}
+
+.toolbar-icon:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+/* Overlay style with fade-in/out */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #00000080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: white;
+  text-align: center;
+  z-index: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#overlay.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#overlay.inactive {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* Status box */
+#status {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  font-size: 2em;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease;
+}
+
+#status:hover {
+  transform: scale(1.05);
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  #toolbar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .toolbar-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  #info {
+    font-size: 18px;
+  }
+
+  #status {
+    font-size: 1.5em;
+  }
+}
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Center the content */
+body, html {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background-color: #333;
+}
+
+/* Overlay style */
+#overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+}
+
+#instructions {
+  font-size: 24px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Hide the controls panel initially */
+#controls-panel {
+  display: none;
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: left;
+}
+
+#controls-panel p {
+  margin: 5px 0;
+}
